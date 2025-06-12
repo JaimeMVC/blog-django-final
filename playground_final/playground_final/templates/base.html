@@ -7,7 +7,12 @@
 <body>
     <nav>
         <a href="{% url 'home' %}">Inicio</a> |
-        <a href="{% url 'about' %}">Acerca de mí</a>
+        <a href="{% url 'about' %}">Acerca de mí</a> |
+        <a href="{% url 'post_list' %}">Posts</a> |
+        <a href="{% url 'post_create' %}">Crear Post</a> |
+        <a href="{% url 'author_list' %}">Autores</a> |
+        <a href="{% url 'author_create' %}">Crear Autor</a> |
+        <a href="/admin/" target="_blank">Admin</a>
     </nav>
 
     <hr>
