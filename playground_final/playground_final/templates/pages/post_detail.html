@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+  <h1>{{ post.title }}</h1>
+  <h3>{{ post.subtitle }}</h3>
+
+  {% if post.image %}
+    <img src="{{ post.image.url }}" alt="imagen" width="300">
+  {% endif %}
+
+  <p>{{ post.content|safe }}</p>
+  <p><i>Publicado el {{ post.date }}</i></p>
+  <a href="{% url 'post_list' %}">Volver al listado</a>
+
+  <hr>
+  <h3>Comentarios</h3>
+
+  {% if comments %}
+    <ul>
+      {% for comment in comments %}
+        <li>
+          <strong>{{ comment.author_name }}</strong> ({{ comment.created_at|date:"d/m/Y H:i" }}):<br>
+          {{ comment.content }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No hay comentarios aún.</p>
+  {% endif %}
+
+  <br>
+  <a href="{% url 'post_edit' post.pk %}">Editar</a> |
+  <a href="{% url 'post_delete' post.pk %}">Eliminar</a>
+{% endblock %}

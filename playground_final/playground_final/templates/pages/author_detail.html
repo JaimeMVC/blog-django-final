@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalle de Autor{% endblock %}
+
+{% block content %}
+<h1>{{ author.name }}</h1>
+
+<p><strong>Bio:</strong> {{ author.bio }}</p>
+<a href="{% url 'author_list' %}">Volver al listado</a>
+{% endblock %}
