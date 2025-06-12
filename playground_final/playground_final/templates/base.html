@@ -2,22 +2,55 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Playground Final{% endblock %}</title>
+    <title>{% block title %}Blog Final{% endblock %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #333;
+            padding: 1em;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 1em;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            background-color: white;
+            margin: 2em auto;
+            padding: 2em;
+            max-width: 800px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .titulo {
+            color: #333;
+        }
+        .descripcion {
+            font-size: 1.1em;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
-    <nav>
-        <a href="{% url 'home' %}">Inicio</a> |
-        <a href="{% url 'about' %}">Acerca de mí</a> |
-        <a href="{% url 'post_list' %}">Posts</a> |
-        <a href="{% url 'post_create' %}">Crear Post</a> |
-        <a href="{% url 'author_list' %}">Autores</a> |
-        <a href="{% url 'author_create' %}">Crear Autor</a> |
-        <a href="/admin/" target="_blank">Admin</a>
-    </nav>
+<nav>
+    <a href="{% url 'home' %}">Inicio</a> |
+    <a href="{% url 'about' %}">Acerca de mí</a> |
+    <a href="{% url 'post_list' %}">Posts</a> |
+    <a href="{% url 'post_create' %}">Crear Post</a> |
+    <a href="{% url 'author_list' %}">Autores</a> |
+    <a href="{% url 'author_create' %}">Crear Autor</a> |
+    <a href="/admin/">Admin</a>
+</nav>
 
-    <hr>
-
-    {% block content %}
-    {% endblock %}
+{% block content %}{% endblock %}
 </body>
 </html>
